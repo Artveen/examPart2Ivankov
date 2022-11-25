@@ -12,7 +12,7 @@ post.body = faker.hacker.phrase();
 let token
 let postId
 
-describe('Request exam task', () => {
+describe('Exam task', () => {
   it(`Registration`, () => {
     cy.request({
       method: 'POST',
@@ -29,7 +29,7 @@ describe('Request exam task', () => {
     })
   })
 
-  it(`Get all posts`, () => {
+  it(`Get posts`, () => {
     cy.request('GET', 'http://localhost:3000/posts').then(response => {
       expect(response.status).to.be.eq(200);
       expect(response.headers).to.have.property('content-type', 'application/json; charset=utf-8')
@@ -51,7 +51,7 @@ describe('Request exam task', () => {
     })
   })
 
-  it(`Create new post without auth but with auth route`, () => {
+  it(`Create new post without authorization`, () => {
     cy.request({
       method: 'POST',
       url: 'http://localhost:3000/664/posts',
@@ -66,7 +66,7 @@ describe('Request exam task', () => {
     })
   })
 
-  it(`Create new post with auth`, () => {
+  it(`Create new post with authorization`, () => {
     cy.request({
       headers:
       {
@@ -100,7 +100,7 @@ describe('Request exam task', () => {
     })
   })
 
-  it(`Create new post without auth`, () => {
+  it(`Create new post without authorization`, () => {
     cy.request({
       headers:
       {
